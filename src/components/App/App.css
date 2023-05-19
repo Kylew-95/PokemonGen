@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap");
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  --card-height: 70vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+.pokemon-viewer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-top: -10vh;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+}
+
+.btnContainer button {
+  width: 100px;
+  height: 40px;
+  line-height: 100px;
+  padding: 10px;
+  border: none;
+  position: relative;
+  background: rgb(0, 172, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 172, 238, 1) 0%,
+    rgba(2, 126, 251, 1) 100%
+  );
+  color: white;
+  overflow: hidden;
+  text-align: center;
+}
+
+.btnContainer button span {
+  display: block;
+  position: relative;
+}
+
+.btnContainer button:before,
+.btnContainer button:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+
+.btnContainer button:before {
+  height: 0%;
+  width: 2px;
+}
+
+.btnContainer button:after {
+  width: 0%;
+  height: 2px;
+}
+
+.btnContainer button:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+.btnContainer button:hover:before {
+  height: 100%;
+}
+
+.btnContainer button:hover:after {
+  width: 100%;
+}
+
+.btnContainer button span:before,
+.btnContainer button span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(2, 126, 251, 1);
+  transition: all 0.3s ease;
+}
+
+.btnContainer button span:before {
+  width: 1px;
+  height: 0%;
+}
+
+.btnContainer button span:after {
+  width: 0%;
+  height: 2px;
+}
+
+.btnContainer button span:hover:before {
+  height: 100%;
+}
+
+.btnContainer button span:hover:after {
+  width: 100%;
+}
+
+.pokemonH1 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pokemonH1 img {
+  width: 250px;
+  height: 100px;
+  margin-right: 1rem;
+}
+
+.card::before .pokemonH1 {
+  content: "";
+  width: 104%;
+  height: 102%;
+
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.card {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  margin-top: 100px;
+  padding: 10px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+}
+
+.card:hover {
+  color: rgba(185, 218, 231, 0.959);
+  transition: color 1s;
+}
+.card:hover:before,
+.card:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+.favoritesContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.miniImage {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+a {
+  color: #212534;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
+}
